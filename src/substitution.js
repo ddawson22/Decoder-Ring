@@ -12,23 +12,23 @@ const substitutionModule = (function () {
     const message = input.toLowerCase();
     let result = '';
 
-    // Check if an alphabet is being passed in or if it is exactly 26 characters
-    if(!alphabet || alphabet.length !== 26) return false;
+  
+    if(!alphabet || alphabet.length !== 26) return false;  // Check if an alphabet is being passed in or if it is exactly 26 characters
     
-    // Check if 'alphabet' has any repeated character
-    let anyDuplicates = new Set(alphabet)
+
+    let anyDuplicates = new Set(alphabet)    // Check if 'alphabet' has any repeated character
     if ([...anyDuplicates].length !== 26) return false;
 
     if(encode){
       for(const currChar of message){
         let currCharIndex = abc.indexOf(currChar);
   
-        // Check if the current value is a letter, then code/decode
-        if(currChar.match(/[a-z]/)){
+       
+        if(currChar.match(/[a-z]/)){ // Check if the current value is a letter, then code/decode
           result += alphabet[currCharIndex];
         
-        // Else just add the current character to the resulting string without any changes
-        }else{
+        
+        }else{// Else just add the current character to the resulting string without any changes
           result += currChar;
         }
       }
@@ -38,12 +38,12 @@ const substitutionModule = (function () {
     for(const currChar of message){
       let currCharIndex = alphabet.indexOf(currChar);
 
-      // Check if the current value is a letter, then code/decode
-      if(!currChar.match(/\s+/g)){
+      
+      if(!currChar.match(/\s+/g)){// Check if the current value is a letter, then code/decode
         result += abc[currCharIndex];
       
-      // Else just add the current character to the resulting string without any changes
-      }else{
+      
+      }else{// Else just add the current character to the resulting string without any changes
         result += currChar;
       }
     }
